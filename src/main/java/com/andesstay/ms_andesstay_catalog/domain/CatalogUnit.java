@@ -63,6 +63,10 @@ public class CatalogUnit {
     @Column(name = "ACTIVE", nullable = false)
     private boolean active;
 
+    /** URL publica en S3 de la foto de referencia de la unidad; null si aun no se ha subido ninguna. */
+    @Column(name = "IMAGE_URL", length = 500)
+    private String imageUrl;
+
     /**
      * Lista cerrada (enum Amenity) para el "valor agregado" de la unidad: wifi, desayuno
      * incluido, vista al lago, etc. Un Set en vez de List porque no importa el orden y

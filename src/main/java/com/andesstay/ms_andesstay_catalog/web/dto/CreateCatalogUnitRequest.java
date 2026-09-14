@@ -17,6 +17,8 @@ public record CreateCatalogUnitRequest(
         @NotNull @DecimalMin(value = "0.0", inclusive = false) BigDecimal nightlyRate,
         @NotNull @Positive Integer totalUnits,
         /** Opcional: si viene null se guarda sin valores agregados. */
-        Set<Amenity> amenities
+        Set<Amenity> amenities,
+        /** Opcional: URL publica en S3 obtenida via /api/catalog/units/images/presign. */
+        String imageUrl
 ) {
 }

@@ -41,6 +41,7 @@ public class CatalogUnitService {
                 .availableUnits(request.totalUnits())
                 .active(true)
                 .amenities(request.amenities() != null ? new LinkedHashSet<>(request.amenities()) : new LinkedHashSet<>())
+                .imageUrl(request.imageUrl())
                 .build();
         return repository.save(unit);
     }
@@ -74,6 +75,9 @@ public class CatalogUnitService {
         unit.setActive(request.active());
         if (request.amenities() != null) {
             unit.setAmenities(new LinkedHashSet<>(request.amenities()));
+        }
+        if (request.imageUrl() != null) {
+            unit.setImageUrl(request.imageUrl());
         }
         return repository.save(unit);
     }

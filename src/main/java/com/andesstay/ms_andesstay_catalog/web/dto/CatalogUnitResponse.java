@@ -18,6 +18,7 @@ public record CatalogUnitResponse(
         Integer availableUnits,
         boolean active,
         Set<Amenity> amenities,
+        String imageUrl,
         Instant createdAt,
         Instant updatedAt
 ) {
@@ -25,6 +26,6 @@ public record CatalogUnitResponse(
         return new CatalogUnitResponse(
                 unit.getId(), unit.getCode(), unit.getType(), unit.getCapacity(), unit.getNightlyRate(),
                 unit.getTotalUnits(), unit.getAvailableUnits(), unit.isActive(), unit.getAmenities(),
-                unit.getCreatedAt(), unit.getUpdatedAt());
+                unit.getImageUrl(), unit.getCreatedAt(), unit.getUpdatedAt());
     }
 }

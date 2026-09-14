@@ -27,6 +27,10 @@ andesstay:
   security:
     audience: ${AZURE_API_AUDIENCE:api://d6959b0c-9ec2-432e-bddb-54bd0e83ace9}
     roles-claim: roles
+  images:
+    bucket: ${S3_IMAGES_BUCKET:andesstay-images-230877966546}
+    region: ${AWS_REGION:us-east-1}
+    presign-ttl-seconds: ${S3_PRESIGN_TTL_SECONDS:300}
 
 management:
   endpoints:

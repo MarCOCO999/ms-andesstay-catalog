@@ -14,6 +14,8 @@ public record UpdateCatalogUnitRequest(
         @NotNull @PositiveOrZero Integer availableUnits,
         @NotNull Boolean active,
         /** Opcional: si viene null se deja la lista de amenities tal como estaba. */
-        Set<Amenity> amenities
+        Set<Amenity> amenities,
+        /** Opcional: si viene null se deja la imagen tal como estaba. */
+        String imageUrl
 ) {
 }

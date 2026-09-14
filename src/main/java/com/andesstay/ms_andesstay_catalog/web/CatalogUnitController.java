@@ -3,8 +3,11 @@ package com.andesstay.ms_andesstay_catalog.web;
 import com.andesstay.ms_andesstay_catalog.domain.CatalogUnit;
 import com.andesstay.ms_andesstay_catalog.domain.UnitType;
 import com.andesstay.ms_andesstay_catalog.service.CatalogUnitService;
+import com.andesstay.ms_andesstay_catalog.service.ImageUploadService;
 import com.andesstay.ms_andesstay_catalog.web.dto.CatalogUnitResponse;
 import com.andesstay.ms_andesstay_catalog.web.dto.CreateCatalogUnitRequest;
+import com.andesstay.ms_andesstay_catalog.web.dto.PresignImageRequest;
+import com.andesstay.ms_andesstay_catalog.web.dto.PresignImageResponse;
 import com.andesstay.ms_andesstay_catalog.web.dto.UpdateCatalogUnitRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -26,9 +29,21 @@ import java.util.List;
 public class CatalogUnitController {
 
     private final CatalogUnitService service;
+    private final ImageUploadService imageUploadService;
 
-    public CatalogUnitController(CatalogUnitService service) {
+    public CatalogUnitController(CatalogUnitService service, ImageUploadService imageUploadService) {
         this.service = service;
+        this.imageUploadService = imageUploadService;
+    }
+
+    /**
+     * El Admin llama esto antes de crear/editar una unidad para obtener una URL de subida
+     * directa a S3; el binario de la imagen nunca pasa por este servicio.
+     */
+    @PostMapping("/images/presign")
+    @PreAuthorize("hasRole('Admin')")
+    public PresignImageResponse presignImage(@Valid @RequestBody PresignImageRequest request) {
+        return imageUploadService.presignUpload(request);
     }
 
     @GetMapping
