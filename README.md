@@ -11,7 +11,7 @@ Microservicio de catálogo del proyecto **AndesStay** (caso DSY1107 – Desarrol
 
 ## Stack
 
-- Spring Boot 4.1.1 / Java 21
+- Spring Boot 4.1.1 / Java 25 (LTS)
 - Spring Data JPA + Oracle Database (driver `ojdbc17`)
 - Spring Security OAuth2 Resource Server (JWT de Azure AD)
 - AWS SDK for Java v2 (`S3Presigner`, incluido en el artifact `s3`) — usa las credenciales del rol de la instancia EC2 (o de un perfil AWS local para desarrollo), nunca una clave embebida en el código
@@ -43,7 +43,7 @@ Microservicio de catálogo del proyecto **AndesStay** (caso DSY1107 – Desarrol
 
 ## Cómo ejecutarlo en local
 
-Requiere Java 21 y Oracle levantado (ver [andesstay-infra](https://github.com/MarCOCO999/andesstay-infra)). La subida de fotos requiere además credenciales de AWS válidas en el entorno (por ejemplo `AWS_PROFILE`); sin ellas, el resto del servicio funciona normal.
+Requiere Java 25 y Oracle levantado (ver [andesstay-infra](https://github.com/MarCOCO999/andesstay-infra)). La subida de fotos requiere además credenciales de AWS válidas en el entorno (por ejemplo `AWS_PROFILE`); sin ellas, el resto del servicio funciona normal.
 
 ```bash
 ./mvnw spring-boot:run
@@ -51,4 +51,4 @@ Requiere Java 21 y Oracle levantado (ver [andesstay-infra](https://github.com/Ma
 
 ## Repos relacionados
 
-[frontend-andesstay](https://github.com/MarCOCO999/frontend-andesstay) · [ms-andesstay-bff](https://github.com/MarCOCO999/ms-andesstay-bff) · [ms-andesstay-reservations](https://github.com/MarCOCO999/ms-andesstay-reservations) · [ms-andesstay-notify](https://github.com/MarCOCO999/ms-andesstay-notify) · [ms-andesstay-audit](https://github.com/MarCOCO999/ms-andesstay-audit) · [ms-andesstay-report](https://github.com/MarCOCO999/ms-andesstay-report) · [ms-andesstay-rabbit-admin](https://github.com/MarCOCO999/ms-andesstay-rabbit-admin) · [andesstay-infra](https://github.com/MarCOCO999/andesstay-infra)
+[frontend-andesstay](https://github.com/MarCOCO999/frontend-andesstay) · [ms-andesstay-bff](https://github.com/MarCOCO999/ms-andesstay-bff) · [ms-andesstay-reservations](https://github.com/MarCOCO999/ms-andesstay-reservations) · [ms-andesstay-notify](https://github.com/MarCOCO999/ms-andesstay-notify) · [ms-andesstay-audit](https://github.com/MarCOCO999/ms-andesstay-audit) · [ms-andesstay-report](https://github.com/MarCOCO999/ms-andesstay-report) · [ms-andesstay-rabbit-admin](https://github.com/MarCOCO999/ms-andesstay-rabbit-admin) · [ms-andesstay-kafka-admin](https://github.com/MarCOCO999/ms-andesstay-kafka-admin) · [andesstay-infra](https://github.com/MarCOCO999/andesstay-infra)
